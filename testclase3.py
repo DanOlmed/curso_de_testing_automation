@@ -1,7 +1,7 @@
 
 numero1 : int
 numero2 : int
-resultado : int
+resultado : float
 
 #Funciones definidas para su posterior utilizacion
 def sumar(a,b) :
@@ -17,12 +17,11 @@ def multiplicar(a,b) :
   return resultado
 
 def dividir(a,b) :
-  try: 
-    resultado = int(a/b)
-  except ZeroDivisionError:
-    print("No se puede dividir por 0")
-  return resultado
-
+  
+    resultado = a/b 
+  
+    return resultado
+  
 
 def menu():
   option = 0
@@ -60,10 +59,13 @@ def menu():
             print(f"el resultado es: {resultado}")
          
         case 4:
-            numero1 = int(input("Ingresar primer numero: "))
-            numero2= int(input("Ingrese el segundo numero: "))
-            resultado = dividir(numero1,numero2)
-            print(f"el resultado es: {resultado}")
+            try :
+              numero1 = int(input("Ingresar primer numero: "))
+              numero2= int(input("Ingrese el segundo numero: "))
+              resultado = dividir(numero1,numero2)
+              print(f"el resultado es: {resultado}")
+            except ZeroDivisionError:
+              print("No se puede dividir por 0")
          
         case 5:
           print(f"Gracias por usar la calculadora")
